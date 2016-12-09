@@ -37,7 +37,7 @@ func main() {
     for _,v := range arr {
         value := strings.TrimSpace(v)
         direction := value[0:1]
-        distance, err := strconv.ParseInt(value[1:len(value)], 10, 16)
+        distance, err := strconv.Atoi(value[1:len(value)])
         check(err)
         if part == "1" {
             x, y, orientation = nextLocation(x, y, orientation, int(distance), direction)
