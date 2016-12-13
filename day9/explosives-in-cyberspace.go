@@ -14,15 +14,15 @@ func check(e error) {
 }
 
 func main() {
-    data, err := ioutil.ReadFile("/Users/jonathan.cui/go/src/github.com/joncui/Advent-Of-Code-2016/day9/data")
+    data, err := ioutil.ReadFile("/Users/jonathan.cui/go/src/github.com/joncui/Advent-Of-Code-2016/day9/test")
     check(err)
 
     dataString := strings.TrimSpace(string(data))
 
-    count1 := partOne(dataString)
+    // count1 := partOne(dataString)
     count2 := partTwo(dataString)
 
-    fmt.Printf("Decompressed length pt 1: %d\n", count1)
+    // fmt.Printf("Decompressed length pt 1: %d\n", count1)
     fmt.Printf("Decompressed length pt 2: %d\n", count2)
 }
 
@@ -54,6 +54,7 @@ func partTwo(data string) (count int) {
         }
 
         x, y := parseMarker(data[markerStart + 1:markerEnd])
+        fmt.Printf("%s <> %d => %d, %d\n", data, markerEnd, x, y)
         count += (partTwo(data[markerEnd+1:markerEnd+x+1]) * y) + (partTwo(data[markerEnd + x + 1:]))
     }
 
