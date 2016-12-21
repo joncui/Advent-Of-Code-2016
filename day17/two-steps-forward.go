@@ -15,12 +15,6 @@ type Coord struct {
 
 var directions = []string{"U", "D", "L", "R"}
 
-func check(e error) {
-    if e != nil {
-        panic(e)
-    }
-}
-
 func main() {
     input := "dmypynyp"
     paths := search(input)
